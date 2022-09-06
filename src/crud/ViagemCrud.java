@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import dao.ClienteDAO;
 import dao.ViagemDAO;
-import modelo.cliente;
 import modelo.viagem;
 
 public class ViagemCrud {
@@ -30,7 +28,7 @@ public class ViagemCrud {
 		String transporte="";
 		
 		
-		List<viagem> cliente = new ArrayList<viagem>();
+		List<viagem> viagem = new ArrayList<viagem>();
 		
 		//Menu
 		
@@ -46,11 +44,11 @@ public class ViagemCrud {
 			
 			switch (opcao) {
 			case 1:
+				viagem viagens = new viagem();
+				
 				System.out.println("**Cadastrar Viagem**");
 				System.out.println("Digite o destino:");
 				destino = input.nextLine();
-
-				viagem viagens = new viagem();
 				viagens.setDestino(destino);	
 				
 				System.out.println("Digite a Data de Partida:");
