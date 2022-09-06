@@ -1,34 +1,31 @@
 package modelo;
 
-import java.util.Date;
 
 public class cliente {
 	
 	private int id_cliente;
 	private String nome_cliente;
-	/*private int cpf_cliente;
-	private Date nasc_cliente;
+	private String cpf_cliente;
+	private String nasc_cliente;
 	private String email_cliente;
 	private String telefone_cliente;
-	private String endereco_cliente;*/
+	private String endereco_cliente;
 	
 	
 	public cliente() {
 		super();
 	}
 
-
-	/*public cliente(int id_cliente, String nome_cliente, int cpf_cliente, Date nasc_cliente, String email_cliente,
-			String telefone_cliente, String endereco_cliente) */
-		public cliente(int id_cliente, String nome_cliente) {
+	public cliente(int id_cliente, String nome_cliente, String cpf_cliente, String nasc_cliente, String email_cliente,
+			String telefone_cliente, String endereco_cliente) {
 		super();
 		this.id_cliente = id_cliente;
 		this.nome_cliente = nome_cliente;
-		/*this.cpf_cliente = cpf_cliente;
+		this.cpf_cliente = cpf_cliente;
 		this.nasc_cliente = nasc_cliente;
 		this.email_cliente = email_cliente;
 		this.telefone_cliente = telefone_cliente;
-		this.endereco_cliente = endereco_cliente;*/
+		this.endereco_cliente = endereco_cliente;
 	}
 
 
@@ -52,23 +49,23 @@ public class cliente {
 	}
 
 
-	/*public int getCpf_cliente() {
+	public String getCpf_cliente() {
 		return cpf_cliente;
 	}
 
 
-	public void setCpf_cliente(int cpf_cliente) {
-		this.cpf_cliente = cpf_cliente;
+	public void setCpf_cliente(String cpf) {
+		this.cpf_cliente = cpf;
 	}
 
 
-	public Date getNasc_cliente() {
+	public String getNasc_cliente() {
 		return nasc_cliente;
 	}
 
 
-	public void setNasc_cliente(Date nasc_cliente) {
-		this.nasc_cliente = nasc_cliente;
+	public void setNasc_cliente(String nasc) {
+		this.nasc_cliente = nasc;
 	}
 
 
@@ -99,7 +96,7 @@ public class cliente {
 
 	public void setEndereco_cliente(String endereco_cliente) {
 		this.endereco_cliente = endereco_cliente;
-	}*/
+	}
 	
 	
 	

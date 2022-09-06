@@ -1,6 +1,7 @@
 package crud;
 
 import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,6 +21,12 @@ public class ClienteCrud {
 		
 		int id = 0;
 		String nome = "";
+		String cpf = "";
+		String nasc="";
+		String email="";
+		String telefone="";
+		String endereco="";
+		
 		
 		List<cliente> cliente = new ArrayList<cliente>();
 		
@@ -43,15 +50,36 @@ public class ClienteCrud {
 				nome = input.nextLine();
 				
 				cliente clientes = new cliente();
+				clientes.setNome_cliente(nome);	
 				
-				clientes.setNome_cliente(nome);
+				System.out.println("Digite o CPF:");
+				cpf = input.nextLine();
+				clientes.setCpf_cliente(cpf);
+				
+				System.out.println("Digite sua Data de Nascimento:");
+				nasc = input.nextLine();
+				clientes.setNasc_cliente(nasc);
+				
+				System.out.println("Digite seu email:");
+				email = input.nextLine();
+				clientes.setEmail_cliente(email);
+				
+				System.out.println("Digite seu Telefone:");
+				telefone = input.nextLine();
+				clientes.setTelefone_cliente(telefone);
+				
+				System.out.println("Digite seu Endereço:");
+				endereco = input.nextLine();
+				clientes.setEndereco_cliente(endereco);
+				
+				
 				ClienteDAO.save(clientes);
 				
 				System.out.println("\n**Cliente Cadastrado**\n");
 				break;
 			case 2:
 				for (cliente a : clientesDAO.getCliente()) {
-					System.out.println("Id: " + a.getId_cliente() + " Nome: " + a.getNome_cliente());
+					System.out.println("Id: " + a.getId_cliente() + ", Nome: " + a.getNome_cliente() + ", CPF: " + a.getCpf_cliente() + ", Nascimento: " + a.getNasc_cliente() + ", Email: " + a.getEmail_cliente() + ", Telefone: " + a.getTelefone_cliente() + ", Endereço: " + a.getEndereco_cliente());
 				}
 				
 				System.out.println("*Consulta Finalizada*");
@@ -70,10 +98,21 @@ public class ClienteCrud {
 				System.out.println("Digite o novo nome do Cliente:");
 				nome = input.nextLine();
 				nome = input.nextLine();
+				System.out.println("Digite o novo cpf do Cliente:");
+				cpf = input.nextLine();
+				System.out.println("Digite o novo nascimento do Cliente:");
+				nasc = input.nextLine();
+				System.out.println("Digite o novo email do Cliente:");
+				email = input.nextLine();
+				System.out.println("Digite o novo telefone do Cliente:");
+				telefone = input.nextLine();
+				System.out.println("Digite o novo endereço do Cliente:");
+				endereco = input.nextLine();
 				
-				cliente clientes1 = new cliente(id, nome);
+				
+				cliente clientes1 = new cliente(id, nome, cpf, nasc, email, telefone, endereco);
 				clientesDAO.update(clientes1);
-				
+				break;				
 			
 			default:
 				System.out.println(opcao != 0 ? "\n Opção inválida, tente novamente. \n" : "");	

@@ -1,15 +1,13 @@
 package modelo;
 
-import java.util.Date;
-
 public class viagem {
 	
 	private int id_viagem;
 	private String destino;
-	private Date data_partida;
-	private Date data_volta;
+	private String data_partida;
+	private String data_volta;
 	private String local_partida;
-	private int valor_viagem;
+	private String valor_viagem;
 	private String tipo_transporte;
 	
 	
@@ -18,8 +16,8 @@ public class viagem {
 	}
 
 
-	public viagem(int id_viagem, String destino, Date data_partida, Date data_volta, String local_partida,
-			int valor_viagem, String tipo_transporte) {
+	public viagem(int id_viagem, String destino, String data_partida, String data_volta, String local_partida,
+			String valor_viagem, String tipo_transporte) {
 		super();
 		this.id_viagem = id_viagem;
 		this.destino = destino;
@@ -51,22 +49,22 @@ public class viagem {
 	}
 
 
-	public Date getData_partida() {
+	public String getData_partida() {
 		return data_partida;
 	}
 
 
-	public void setData_partida(Date data_partida) {
+	public void setData_partida(String data_partida) {
 		this.data_partida = data_partida;
 	}
 
 
-	public Date getData_volta() {
+	public String getData_volta() {
 		return data_volta;
 	}
 
 
-	public void setData_volta(Date data_volta) {
+	public void setData_volta(String data_volta) {
 		this.data_volta = data_volta;
 	}
 
@@ -81,12 +79,12 @@ public class viagem {
 	}
 
 
-	public int getValor_viagem() {
+	public String getValor_viagem() {
 		return valor_viagem;
 	}
 
 
-	public void setValor_viagem(int valor_viagem) {
+	public void setValor_viagem(String valor_viagem) {
 		this.valor_viagem = valor_viagem;
 	}
 

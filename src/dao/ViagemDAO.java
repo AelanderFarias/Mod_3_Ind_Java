@@ -1,5 +1,6 @@
 package dao;
 
+
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
@@ -8,15 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import connection.ConnectionMySql;
-import modelo.cliente;
+import modelo.viagem;
 
-public class ClienteDAO {
+public class ViagemDAO {
 	
 	//Create
 	
-	public static void save(cliente clientes) {
+	public static void save(viagem viagens) {
 		
-	String sql = "INSERT INTO cliente (nome_cliente, cpf_cliente, nasc_cliente, email_cliente, telefone_cliente, endereco_cliente) VALUES (?, ?, ?, ?, ?, ?)";
+	String sql = "INSERT INTO viagem (destino, data_partida, data_volta, local_partida, valor_viagem, tipo_transporte) VALUES (?, ?, ?, ?, ?, ?)";
 		
 		
 	Connection conn = null;
@@ -27,12 +28,12 @@ public class ClienteDAO {
 		
 		pstm = conn.prepareStatement(sql);
 		
-		pstm.setString(1, clientes.getNome_cliente());
-		pstm.setString(2, clientes.getCpf_cliente());
-		pstm.setString(3,  clientes.getNasc_cliente());
-		pstm.setString(4, clientes.getEmail_cliente());
-		pstm.setString(5, clientes.getTelefone_cliente());
-		pstm.setString(6, clientes.getEndereco_cliente());
+		pstm.setString(1, viagens.getDestino());
+		pstm.setString(2, viagens.getData_partida());
+		pstm.setString(3,  viagens.getData_volta());
+		pstm.setString(4, viagens.getLocal_partida());
+		pstm.setString(5, viagens.getValor_viagem());
+		pstm.setString(6, viagens.getTipo_transporte());
 		
 		
 		pstm.execute();
@@ -61,11 +62,11 @@ public class ClienteDAO {
 	
 	//Read
 	
-	public List<cliente> getCliente() {
+	public List<viagem> getViagem() {
 		
-		String sql = "SELECT * FROM cliente";
+		String sql = "SELECT * FROM viagem";
 		
-		List<cliente> cliente = new ArrayList<cliente>();
+		List<viagem> viagem = new ArrayList<viagem>();
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -81,17 +82,17 @@ public class ClienteDAO {
 			rset = pstm.executeQuery();
 			
 			while (rset.next()) {
-				cliente clientes = new cliente();
+				viagem viagens = new viagem();
 				
-				clientes.setId_cliente(rset.getInt("id_cliente"));
-				clientes.setNome_cliente(rset.getString("nome_cliente"));
-				clientes.setCpf_cliente(rset.getString("cpf_cliente"));
-				clientes.setNasc_cliente(rset.getString("nasc_cliente"));
-				clientes.setEmail_cliente(rset.getString("email_cliente"));
-				clientes.setTelefone_cliente(rset.getString("telefone_cliente"));
-				clientes.setEndereco_cliente(rset.getString("endereco_cliente"));
+				viagens.setId_viagem(rset.getInt("id_viagem"));
+				viagens.setDestino(rset.getString("destino"));
+				viagens.setData_partida(rset.getString("data_partida"));
+				viagens.setData_volta(rset.getString("data_volta"));
+				viagens.setLocal_partida(rset.getString("local_partida"));
+				viagens.setValor_viagem(rset.getString("valor_viagem"));
+				viagens.setTipo_transporte(rset.getString("tipo_transporte"));
 				
-				cliente.add(clientes);
+				viagem.add(viagens);
 			}
 			
 		} catch (Exception e){
@@ -113,14 +114,14 @@ public class ClienteDAO {
 				e.printStackTrace();
 			}
 		}
-		return cliente;
+		return viagem;
 		
 		
 	}
 	//Update
-	public void update(cliente clientes) {
+	public void update(viagem viagens) {
 		
-		String sql = "UPDATE cliente SET nome_cliente = ?, cpf_cliente = ?, nasc_cliente, email_cliente, telefone_cliente, endereco_cliente WHERE id_cliente = ?";
+		String sql = "UPDATE viagem SET destino = ?, data_partida = ?, data_volta, local_partida, valor_viagem, tipo_transporte WHERE id_viagem = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -131,13 +132,13 @@ public class ClienteDAO {
 			
 			pstm = conn.prepareStatement(sql);
 			
-			pstm.setString(1, clientes.getNome_cliente());
-			pstm.setString(2, clientes.getCpf_cliente());
-			pstm.setString(3, clientes.getNasc_cliente());
-			pstm.setString(4, clientes.getEmail_cliente());
-			pstm.setString(5, clientes.getTelefone_cliente());
-			pstm.setString(6, clientes.getEndereco_cliente());
-			pstm.setInt(7, clientes.getId_cliente());
+			pstm.setString(1, viagens.getDestino());
+			pstm.setString(2, viagens.getData_partida());
+			pstm.setString(3, viagens.getData_volta());
+			pstm.setString(4, viagens.getLocal_partida());
+			pstm.setString(5, viagens.getValor_viagem());
+			pstm.setString(6, viagens.getTipo_transporte());
+			pstm.setInt(7, viagens.getId_viagem());
 			
 			pstm.execute();
 			
@@ -161,7 +162,7 @@ public class ClienteDAO {
 	//Delete
 	public void deleteById(int id) {
 		
-		String sql = "DELETE FROM cliente WHERE id_cliente = ?";
+		String sql = "DELETE FROM viagem WHERE id_viagem = ?";
 		
 		Connection conn = null;
 		PreparedStatement pstm = null;
